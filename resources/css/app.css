@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+
+/* ini tinggal edit edit aja buat css nya */
+
 .cssText{
     font-weight: 300;
     font-family: 'Young Serif';
+    font-size: larger;
+    /* ini contoh buat di home.blade.php */
 }
