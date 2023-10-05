@@ -21,9 +21,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav style="background-color: #F3E9DC" class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand ms-5" href="{{ url('/') }}">
+                    <img src="/images/navbar-logo.svg" style="max-width: 30px ">
                     {{ config('Snapcat', 'Snapcat') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -41,15 +42,23 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
+                                <div class="ms-5">
+                                    <li class="nav-item">
+                                        <div  class="btn btn-outline-primary btn-nav">
+                                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                        </div>
+                                    </li>
+                                </div>
                             @endif
 
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
+                                <div class="ms-5">
+                                    <li class="nav-item ">
+                                        <div class="btn btn-nav btn-outline-primary">
+                                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        </div>
+                                    </li>
+                                </div>
                             @endif
                         @else
                             <li class="nav-item dropdown">

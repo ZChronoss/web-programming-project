@@ -1,8 +1,26 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 $theme-colors:(
-    "primary" : #ba3d3d,
+    "primary" : #5E3023,
+    "nav"     : #F3E9DC,
 );
+
+// Input
+$input-bg:  #ffeacd;
+$input-border-color: #DAB49D;
+$input-focus-bg: #ffeacd;;
+
+// Card
+$card-bg: #F3E9DC;
+$card-box-shadow:  #000;
+
+//link
+$link-primary : #C08552;
+
+//button
+$btn-font-weight: bold;
+$btn-outline-primary : #5E3023;
+
 
 // Variables
 @import '_variables';

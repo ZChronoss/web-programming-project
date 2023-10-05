@@ -10,10 +10,11 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <div style="background-color: #FFEACD" class="card">
+                    <div class="card">
                         <div class="card-header">{{ __('Register') }}</div>
-
+                        {{-- <img src="/images/Register-bg.png" alt=""> --}}
                         <div class="card-body">
+                            <img src="images/logo.png" class="rounded mx-auto d-block w-1 m-3 ">
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
 
@@ -69,9 +70,12 @@
 
                                 <div class="row mb-0">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit"class="btn btn-primary">
+                                        <button type="submit"class="btn font-weight-bold btn-primary">
                                             {{ __('Register') }}
                                         </button>
+                                        <a class="btn btn-link link-primary font-weight-bold" >
+                                            {{ __('Sign In To Your Account') }}
+                                        </a>
                                     </div>
                                 </div>
                             </form>
