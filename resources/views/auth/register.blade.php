@@ -2,10 +2,8 @@
 
 @section('content')
 
-<head>
-    <link rel="stylesheet" href="main.css">
-</head>
-<body style="background-color: rgba(224, 180, 110, 0.867)">
+{{--  --}}
+<body>
     <div class="background">
         <div class="container">
             <div class="row justify-content-center">
