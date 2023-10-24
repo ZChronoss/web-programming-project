@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
 
+
 /* ini tinggal edit edit aja buat css nya */
 
 .cssText{
@@ -44,4 +45,7 @@ body{
     padding: 20px;
 }
 
+.img{
+    max-width: 40rem;
+}
 

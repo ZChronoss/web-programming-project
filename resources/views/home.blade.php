@@ -14,19 +14,35 @@
                             </div>
                             </div>
                     </div>
-                      <div class="post-content d-flex justify-content-center m-10">
-                        <img src="images/Login-bg.png" class="img-thumbnail" alt="...">
+                      <div style="max-width: 100%" class="container">
+                        <div class="postContent">
+                            <div class="post-content d-flex justify-content-center m-10">
+                            <img src="images/Login-bg.png" class="img-thumbnail img" alt="...">
+                          </div>
+                          <div class="postFooter p-2">
+                            <div class="d-flex justify-content-between">
+                                <p class="fs-5">
+                                    This is Caption Field
+                                </p>
+                                <div class="reaction d-flex justify-content-between">
+                                    <i id="like" onclick="likeBtn()" style="color: #b51a00" class="fa-regular fa-heart fa-2xl"></i>
+                                </div>
+                            </div>
+                            </div>
                       </div>
-                      <div class="postFooter p-2">
-                        <div class="d-flex"></div>
-                        <p class="fs-5">
-                            This is Caption Field
-                        </p>
                       </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    {{-- <script src="../../js/home.js"></script> --}}
+    <script>
+        function likeBtn() {
+            let heart = document.getElementById("like");
+            heart.classList.toggle("fa-solid");
+}
+
+    </script>
 </div>
 @endsection
