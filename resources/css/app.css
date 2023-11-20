@@ -49,3 +49,10 @@ body{
     max-width: 40rem;
 }
 
+.profile-img{
+    width: 2.5rem;
+    height: 2.5rem;
+    aspect-ratio: 1;
+}
+
+
