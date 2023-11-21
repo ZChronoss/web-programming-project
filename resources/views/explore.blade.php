@@ -50,7 +50,8 @@
                         <div class="header mb-2 fw-bold px-2">
                             Suggestion
                         </div>
-                        <div class="row">
+                        @foreach ($fakeNum as $fake)
+                            <div class="row">
                             <div class="col-6 d-flex align-items-center px-4">
                                     <img src="images/logo.png" class="rounded-circle profile-img" alt="">
                                     <div class="px-2">Username</div>
@@ -58,8 +59,10 @@
                             <div class="col-6 d-flex justify-content-end align-items-center">
                                 <a class="btn btn-primary" href="">Follow</a>
                             </div>
-                        </div>
-                        <span class="border-black border-bottom border-opacity-25 p-2"></span>
+                            </div>
+                            <span class="border-black border-bottom border-opacity-25 p-2"></span>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
