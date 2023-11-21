@@ -51,7 +51,7 @@
                             Suggestion
                         </div>
                         @foreach ($fakeNum as $fake)
-                            <div class="row">
+                            <div class="row my-2">
                             <div class="col-6 d-flex align-items-center px-4">
                                     <img src="images/logo.png" class="rounded-circle profile-img" alt="">
                                     <div class="px-2">Username</div>
@@ -60,7 +60,9 @@
                                 <a class="btn btn-primary" href="">Follow</a>
                             </div>
                             </div>
-                            <span class="border-black border-bottom border-opacity-25 p-2"></span>
+                            @if (!$loop->last)
+                            <span class="border-black border-bottom border-opacity-25"></span>
+                            @endif
                         @endforeach
 
                     </div>
