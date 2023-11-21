@@ -63,6 +63,7 @@
                             </div>
                             @if (!$loop->last)
                                 <span class="border-black border-bottom border-opacity-25"></span>
+                                {{-- Fake --}}
                             @endif
                         @endforeach
                     </div>
