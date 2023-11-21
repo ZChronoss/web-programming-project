@@ -47,19 +47,24 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="card p-2 ">
-                        <div class="header mb-2 fw-bold px-2">
-                            Suggestion
+                        <div class="header fs-5 mb-2 fw-bold px-2">
+                            Suggestions For You
                         </div>
-                        <div class="row">
-                            <div class="col-6 d-flex align-items-center px-4">
-                                    <img src="images/logo.png" class="rounded-circle profile-img" alt="">
-                                    <div class="px-2">Username</div>
+                        {{-- <span class="border-black border-top"></span> --}}
+                        @foreach ($FakeNum as $fake)
+                            <div class="row my-2">
+                                <div class="col-6 d-flex align-items-center px-4">
+                                        <img src="images/logo.png" class="rounded-circle profile-img" alt="">
+                                        <div class="px-2">Username</div>
+                                </div>
+                                <div class="col-6 d-flex justify-content-end align-items-center">
+                                    <a class="btn btn-primary" href="">Follow</a>
+                                </div>
                             </div>
-                            <div class="col-6 d-flex justify-content-end align-items-center">
-                                <a class="btn btn-primary" href="">Follow</a>
-                            </div>
-                        </div>
-                        <span class="border-black border-bottom border-opacity-25 p-2"></span>
+                            @if (!$loop->last)
+                                <span class="border-black border-bottom border-opacity-25"></span>
+                            @endif
+                        @endforeach
                     </div>
                 </div>
             </div>
