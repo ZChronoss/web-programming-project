@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="card p-2 ">
-                        <div class="header mb-2 fw-bold px-2">
+                        <div class="fs-5 header mb-2 fw-bolder px-2">
                             Suggestion
                         </div>
                         @foreach ($fakeNum as $fake)
