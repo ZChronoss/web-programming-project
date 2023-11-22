@@ -13,6 +13,7 @@ $input-focus-bg: #ffeacd;;
 // Card
 $card-bg: #F3E9DC;
 $card-box-shadow:  #000;
+$card-title-color:#480101;
 
 //link
 $link-primary : #C08552;
@@ -23,6 +24,9 @@ $btn-font-weight: bold;
 
 // Variables
 @import '_variables';
+
+//Thumbnail
+$thumbnail-border-width: 0;
 
 
 // Bootstrap

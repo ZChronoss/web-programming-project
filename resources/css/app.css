@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
 
+
 /* ini tinggal edit edit aja buat css nya */
 
 .cssText{
@@ -38,3 +39,20 @@ body{
 .links{
     font-weight: 250;
 }
+
+.Contents
+{
+    padding: 20px;
+}
+
+.img{
+    max-width: 40rem;
+}
+
+.profile-img{
+    width: 2.5rem;
+    height: 2.5rem;
+    aspect-ratio: 1;
+}
+
+
