@@ -51,11 +51,11 @@
                             Suggestions For You
                         </div>
                         {{-- <span class="border-black border-top"></span> --}}
-                        @foreach ($FakeNum as $fake)
+                        @foreach ($userList as $user)
                             <div class="row my-2">
                                 <div class="col-6 d-flex align-items-center px-4">
                                         <img src="images/logo.png" class="rounded-circle profile-img" alt="">
-                                        <div class="px-2">Username</div>
+                                        <div class="px-2">{{ $user->name }}</div>
                                 </div>
                                 <div class="col-6 d-flex justify-content-end align-items-center">
                                     <a class="btn btn-primary" href="">Follow</a>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,17 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('home');
 });
 
 Auth::routes();
 
-Route::get('/explore', function () {
-    $FakeNum = [1,2,3,4,5,6,7,8,9,10];
-    return view('explore', compact('FakeNum'));
-});
-
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/explore', [UserController::class, 'explore']);
 
