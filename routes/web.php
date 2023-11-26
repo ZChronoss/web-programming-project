@@ -20,8 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/explore', function () {
-    $fakeNum = [1,2,3,4,5];
-    return view('explore', compact('fakeNum'));
+    $FakeNum = [1,2,3,4,5,6,7,8,9,10];
+    return view('explore', compact('FakeNum'));
 });
 
 Route::get('/home', function () {
