@@ -30,8 +30,7 @@ class UserController extends Controller
         $userList = User::whereNotIn('id', $followerIds)->where('id', '!=', $loggedInUserId)->get();
 
         $posts = Post::all();
-        $FakeNum = [1,2,3,4,5];
 
-        return view('explore', compact('userList', 'posts', 'FakeNum'));
+        return view('explore', compact('userList', 'posts'));
     }
 }
