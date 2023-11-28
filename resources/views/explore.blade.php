@@ -47,7 +47,6 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="card p-2 ">
-<<<<<<< HEAD
                         <div class="header fs-5 mb-2 fw-bold px-2">
                             Suggestions For You
                         </div>
@@ -67,26 +66,6 @@
                                 {{-- Fake --}}
                             @endif
                         @endforeach
-=======
-                        <div class="fs-5 header mb-2 fw-bolder px-2">
-                            Suggestion
-                        </div>
-                        @foreach ($fakeNum as $fake)
-                            <div class="row my-2">
-                            <div class="col-6 d-flex align-items-center px-4">
-                                    <img src="images/logo.png" class="rounded-circle profile-img" alt="">
-                                    <div class="px-2">Username</div>
-                            </div>
-                            <div class="col-6 d-flex justify-content-end align-items-center">
-                                <a class="btn btn-primary" href="">Follow</a>
-                            </div>
-                            </div>
-                            @if (!$loop->last)
-                            <span class="border-black border-bottom border-opacity-25"></span>
-                            @endif
-                        @endforeach
-
->>>>>>> bb297bb9e784bd101ed60b11f681a49827a76fa7
                     </div>
                 </div>
             </div>
