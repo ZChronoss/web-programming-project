@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Models\Post;
 /*
@@ -15,7 +17,7 @@ use App\Models\Post;
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('home');
 });
 
 Auth::routes();
@@ -29,9 +31,10 @@ Route::get('/explore', function () {
         return view('explore', compact('posts', 'FakeNum'));
 
 });
+Route::get('/explore', [UserController::class, 'explore']);
 
-Route::get('/home', function () {
-    return view('home');
+Route::prefix('post')->group(function(){
+    Route::post('/{postId}/comment', [PostController::Class, 'createComment']);
 });
 
 route::get('/profile', function(){
@@ -41,3 +44,12 @@ route::get('/profile', function(){
     return view('profile', compact('FakeNum'));
 });
 
+route::get('/profile', function(){
+
+    $FakeNum = [1,2,3,4,5,6];
+
+    return view('profile', compact('FakeNum'));
+});
+
+Route::get('/post/create', [PostController::class, 'create']);
+Route::post('/post/store', [PostController::class, 'store']);
