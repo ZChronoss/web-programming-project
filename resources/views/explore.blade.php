@@ -30,20 +30,20 @@
                                                 {{ $post->caption }}
                                             </p>
                                             <div class="d-flex justify-content-evenly details">
-                                                <i id="like" onclick="likeBtn()" style="color: #b51a00"
+                                                <i id="like" onclick="likeBtn(this)" style="color: #b51a00"
                                                     class="fa-regular fa-heart fa-2xl p-2"></i>
-                                                <i id="comment" onclick="toggleCommentForm()" class="fa-regular fa-comment fa-2xl p-2"></i>
+                                                <i id="comment" onclick="toggleCommentForm(this, {{ $post->id }})" class="fa-regular fa-comment fa-2xl p-2"></i>
                                                 <i class="fa-solid fa-share fa-2xl p-2" style="color: #ecb900;"></i>
                                                 <div class="comment-container">
                                                 </div>
                                             </div>
                                         </div>
-                                        <form action="" method="POST" id="commentForm" style="display: none;">
+                                        <form action="" method="POST" id="commentForm{{ $post->id }}" style="display: none;">
                                             @csrf
                                             <label for="exampleInputEmail1" class="form-label">Comment this post</label>
                                             <div class="mb-3 d-flex">
 
-                                                <input type="email" class="form-control">
+                                                <input type="text" class="form-control">
                                                 <button type="submit" class="btn btn-primary ms-2">Comment</button>
                                             </div>
 
@@ -80,7 +80,7 @@
                     @forelse ($userList as $user)
                         <div class="row my-2">
                             <div class="col-6 d-flex align-items-center px-4">
-                                    <img src="images/logo.png" class="rounded-circle profile-img" alt="">
+                                    <img src="{{ $post->user->profile->profileImage() }}" class="rounded-circle profile-img" alt="">
                                     <div class="px-2">{{ $user->name }}</div>
                             </div>
                             <div class="col-6 d-flex justify-content-end align-items-center">
@@ -110,8 +110,8 @@
         //     let heart = document.getElementById("like");
         //     heart.classList.toggle("fa-solid");
         // }
-        function toggleCommentForm() {
-            let commentForm = document.getElementById("commentForm");
+        function toggleCommentForm(comment, id) {
+            let commentForm = document.getElementById("commentForm"+id);
             commentForm.style.display = commentForm.style.display === "none" ? "block" : "none";
         }
     </script>
