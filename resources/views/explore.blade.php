@@ -38,12 +38,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <form action="" method="POST" id="commentForm" style="display: none;">
+                                        <form action="/comment/{{ $post->id }}" method="POST" id="commentForm" style="display: none;">
                                             @csrf
-                                            <label for="exampleInputEmail1" class="form-label">Comment this post</label>
+                                            <label for="comment" class="form-label">Comment this post</label>
                                             <div class="mb-3 d-flex">
-
-                                                <input type="email" class="form-control">
+                                                <input type="text" class="form-control" name="comment">
                                                 <button type="submit" class="btn btn-primary ms-2">Comment</button>
                                             </div>
 
@@ -55,10 +54,10 @@
                                                 alt="">
                                             <div class="p-2">
                                                 <a style="text-decoration: none; color: #000;" href="#">
-                                                    username20007
+                                                    {{ $comment->user->name }}
                                                 </a>
                                                 <div class="comment-list">
-                                                    Wow keren amat kucingnya
+                                                    {{ $comment->comment }}
                                                 </div>
                                             </div>
                                         </div>

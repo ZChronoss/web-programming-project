@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -23,9 +24,10 @@ Auth::routes();
 
 Route::get('/explore', [UserController::class, 'explore']);
 
-Route::prefix('post')->group(function(){
-    Route::post('/{postId}/comment', [PostController::Class, 'createComment']);
-});
+// Route::prefix('post')->group(function(){
+//     Route::post('/comment/{post}', [PostController::class, 'createComment']);
+// });
+Route::post('/comment/{post}', [CommentController::class, 'createComment']);
 
 Route::get('/post/create', [PostController::class, 'create']);
 Route::post('/post/store', [PostController::class, 'store']);
