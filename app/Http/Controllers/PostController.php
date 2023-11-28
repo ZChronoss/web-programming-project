@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -20,7 +19,7 @@ class PostController extends Controller
 
         //logic buat nyari semua user yang blm difollow oleh logged in user
         $loggedInUserId = auth()->user()->id;
-        $followerIds = auth()->user()->profile->followers->pluck('profile_id');
+        $followerIds = auth()->user()->profile->followers()->pluck('profile_id');
 
         $userList = User::whereNotIn('id', $followerIds)->where('id', '!=', $loggedInUserId)->get();
 

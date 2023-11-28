@@ -29,6 +29,8 @@ class UserController extends Controller
 
         $userList = User::whereNotIn('id', $followerIds)->where('id', '!=', $loggedInUserId)->get();
 
+
+
         $posts = Post::all();
 
         return view('explore', compact('userList', 'posts'));

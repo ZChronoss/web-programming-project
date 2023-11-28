@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
@@ -34,7 +33,7 @@ Route::get('/explore', function () {
 Route::get('/explore', [UserController::class, 'explore']);
 
 Route::prefix('post')->group(function(){
-    Route::post('/{postId}/comment', [PostController::Class, 'createComment']);
+    Route::post('/{postId}/comment', [PostController::class, 'createComment']);
 });
 
 route::get('/profile', function(){

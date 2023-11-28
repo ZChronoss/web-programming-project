@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-@foreach ($posts as $post)
+{{-- @foreach ($posts as $post) --}}
 <div class="container d-block p-2 ">
     <div class="post-container">
         <div class="row justify-content-center">
-            <div class="col-sm-8 col-12">
-                <div class="card">
-                    <div class="Contents ">
+            <div class="col-8">
+                @foreach ($posts as $post)
+                    <div class="card mb-4">
                         <div class="Header p-2">
-                            <div class="d-flex Profile align-middle">
+                            <div class="d-flex Profile align-middl">
                                 <img src="{{ $post->user->profile->profileImage() }}" class="rounded-circle profile-img" alt="">
                                 <div class="fw-bolder p-2">
                                     <a style="text-decoration: none; color: #000;" href="#">
@@ -18,13 +18,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="max-width: 100%" class="container">
+                        <div class="container">
                             <div class="row">
                                 <div class="post-Content col-12">
                                     <div class="photo d-flex justify-content-center">
                                         <img src="/storage/{{ $post->image }}" class="img-fluid img w-100" alt="...">
                                     </div>
-                                    <div class="postFooter p-2 mt-3">
+                                    <div class="postFooter p-2 mt-3 mb-3">
                                         <div class="d-flex justify-content-between">
                                             <p class="fs-5">
                                                 {{ $post->caption }}
@@ -68,19 +68,16 @@
                                 </div>
                             </div>
                         </div>
-                    @empty
-                        <p>no post</p>
-                    @endforelse
-
-                </div>
+                    </div>
+                @endforeach
             </div>
-            <div class="col-sm-4">
+            <div class="col-4">
                 <div class="card p-2 ">
                     <div class="header fs-5 mb-2 fw-bold px-2">
                         Suggestions For You
                     </div>
                     {{-- <span class="border-black border-top"></span> --}}
-                    @foreach ($userList as $user)
+                    @forelse ($userList as $user)
                         <div class="row my-2">
                             <div class="col-6 d-flex align-items-center px-4">
                                     <img src="images/logo.png" class="rounded-circle profile-img" alt="">
@@ -94,14 +91,16 @@
                             <span class="border-black border-bottom border-opacity-25"></span>
                             {{-- Fake --}}
                         @endif
-                    @endforeach
+                    @empty
+                        KOSONG
+                    @endforelse
 
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endforeach
+{{-- @endforeach --}}
     {{-- <script src="../../js/home.js"></script> --}}
     <script>
         function likeBtn(likeIcon) {
