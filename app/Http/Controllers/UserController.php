@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Post;
 
 class UserController extends Controller
 {
@@ -28,6 +29,8 @@ class UserController extends Controller
 
         $userList = User::whereNotIn('id', $followerIds)->where('id', '!=', $loggedInUserId)->get();
 
-        return view('explore', compact('userList'));
+        $posts = Post::all();
+
+        return view('explore', compact('userList', 'posts'));
     }
 }
