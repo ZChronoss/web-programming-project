@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/explore', [PostController::class, 'explore']);
+Route::get('/explore', [UserController::class, 'explore']);
 
 Route::prefix('post')->group(function(){
     Route::post('/{postId}/comment', [PostController::Class, 'createComment']);
