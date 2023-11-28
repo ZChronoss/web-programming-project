@@ -2,6 +2,7 @@
 
 @section('content')
 {{-- @foreach ($posts as $post) --}}
+
 <div class="container d-block p-2 ">
     <div class="post-container">
         <div class="row justify-content-center">
@@ -25,15 +26,15 @@
                                         <img src="/storage/{{ $post->image }}" class="img-fluid img w-100" alt="...">
                                     </div>
                                     <div class="postFooter p-2 mt-3 mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <p class="fs-5">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <p class="fs-5 m-0">
                                                 {{ $post->caption }}
                                             </p>
-                                            <div class="d-flex justify-content-evenly details">
-                                                <i id="like" onclick="likeBtn(this)" style="color: #b51a00"
+                                            <div class="d-flex justify-content-evenly align-items-center details">
+                                                <i id="like" onclick="likeBtn(this)" style="color: #b51a00;"
                                                     class="fa-regular fa-heart fa-2xl p-2"></i>
                                                 <i id="comment" onclick="toggleCommentForm(this, {{ $post->id }})" class="fa-regular fa-comment fa-2xl p-2"></i>
-                                                <i class="fa-solid fa-share fa-2xl p-2" style="color: #ecb900;"></i>
+                                                <i class="fa-regular fa-share fa-2xl p-2" style="color: #ecb900;"></i>
                                                 <div class="comment-container">
                                                 </div>
                                             </div>
