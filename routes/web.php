@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -20,5 +21,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/explore', [UserController::class, 'explore']);
+Route::get('/explore', [PostController::class, 'explore']);
+
+Route::prefix('post')->group(function(){
+    Route::post('/{postId}/comment', [PostController::Class, 'createComment']);
+});
 
