@@ -27,3 +27,5 @@ Route::prefix('post')->group(function(){
     Route::post('/{postId}/comment', [PostController::Class, 'createComment']);
 });
 
+Route::get('/post/create', [PostController::class, 'create']);
+Route::post('/post/store', [PostController::class, 'store']);
