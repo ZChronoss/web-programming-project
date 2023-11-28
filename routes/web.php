@@ -35,6 +35,9 @@ Route::get('/home', function () {
 });
 
 route::get('/profile', function(){
-    return view('profile');
+
+    $FakeNum = [1,2,3,4,5,6];
+
+    return view('profile', compact('FakeNum'));
 });
 
