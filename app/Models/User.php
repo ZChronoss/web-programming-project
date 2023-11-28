@@ -43,6 +43,17 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    // ini kalo buat user baru bakal bikin profile baru juga buat user itu
+    protected static function boot(){
+        parent::boot();
+
+        static::created(function ($user){
+            $user->profile()->create([
+                'description' => $user->name
+            ]);
+        });
+    }
+
     public function profile(){
         return $this->hasOne(Profile::class);
     }
