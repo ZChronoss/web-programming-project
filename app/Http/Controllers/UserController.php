@@ -33,4 +33,13 @@ class UserController extends Controller
 
         return view('explore', compact('userList', 'posts'));
     }
+
+    public function follow($profileId){
+        $user = auth()->user();
+        $following = User::find($profileId);
+
+        $user->following()->sync($following);
+
+        return redirect('/explore');
+    }
 }

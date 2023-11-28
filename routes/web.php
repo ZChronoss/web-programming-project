@@ -27,3 +27,8 @@ Route::prefix('post')->group(function(){
     Route::post('/{postId}/comment', [PostController::Class, 'createComment']);
 });
 
+Route::prefix('user')->group(function(){
+    Route::match(['get', 'post'], 'follow/{profileId}', [UserController::class, 'follow']);
+});
+
+

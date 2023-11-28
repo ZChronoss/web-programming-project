@@ -32,7 +32,8 @@
                                                     <i id="like" onclick="likeBtn()" style="color: #b51a00"
                                                         class="fa-regular fa-heart fa-2xl p-2"></i>
                                                     <i class="fa-regular fa-comment fa-2xl p-2"></i>
-                                                    <i id="comment" onclick="toggleCommentForm()" class="fa-regular fa-comment fa-2xl p-2"></i>
+                                                    <i id="comment" onclick="toggleCommentForm()"
+                                                        class="fa-regular fa-comment fa-2xl p-2"></i>
                                                     <i class="fa-solid fa-share fa-2xl p-2" style="color: #ecb900;"></i>
                                                     <div class="comment-container">
                                                     </div>
@@ -71,38 +72,42 @@
                     <div class="card p-2 ">
                         <div class="header fs-5 mb-2 fw-bold px-2">
                             Suggestions For You
-                        {{-- <span class="border-black border-top"></span> --}}
-                        @foreach ($userList as $user)
-                            <div class="row my-2">
-                                <div class="col-6 d-flex align-items-center px-4">
+                            {{-- <span class="border-black border-top"></span> --}}
+                            @foreach ($userList as $user)
+                                <div class="row my-2">
+                                    <div class="col-6 d-flex align-items-center px-4">
                                         <img src="images/logo.png" class="rounded-circle profile-img" alt="">
                                         <div class="px-2">{{ $user->name }}</div>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-end align-items-center">
+                                        <form action="/user/follow/{{ $user->id }}" method="POST">
+                                            @csrf
+                                            <a class="btn btn-primary" href="">Follow</a>
+                                        </form>
+                                    </div>
                                 </div>
-                                <div class="col-6 d-flex justify-content-end align-items-center">
-                                    <a class="btn btn-primary" href="">Follow</a>
-                                </div>
-                            </div>
-                            @if (!$loop->last)
-                                <span class="border-black border-bottom border-opacity-25"></span>
-                                {{-- Fake --}}
-                            @endif
-                        @endforeach
+                                @if (!$loop->last)
+                                    <span class="border-black border-bottom border-opacity-25"></span>
+                                    {{-- Fake --}}
+                                @endif
+                            @endforeach
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    {{-- <script src="../../js/home.js"></script> --}}
-    <script>
-        function likeBtn() {
-            let heart = document.getElementById("like");
-            heart.classList.toggle("fa-solid");
-        }
-        function toggleCommentForm() {
-            let commentForm = document.getElementById("commentForm");
-            commentForm.style.display = commentForm.style.display === "none" ? "block" : "none";
-        }
-    </script>
+        {{-- <script src="../../js/home.js"></script> --}}
+        <script>
+            function likeBtn() {
+                let heart = document.getElementById("like");
+                heart.classList.toggle("fa-solid");
+            }
+
+            function toggleCommentForm() {
+                let commentForm = document.getElementById("commentForm");
+                commentForm.style.display = commentForm.style.display === "none" ? "block" : "none";
+            }
+        </script>
     </div>
 @endsection
