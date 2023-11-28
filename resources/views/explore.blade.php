@@ -31,10 +31,31 @@
                                                 <div class="d-flex justify-content-evenly details">
                                                     <i id="like" onclick="likeBtn()" style="color: #b51a00"
                                                         class="fa-regular fa-heart fa-2xl p-2"></i>
-                                                    <i class="fa-regular fa-comment fa-2xl p-2"></i>
+                                                    <i id="comment" onclick="toggleCommentForm()" class="fa-regular fa-comment fa-2xl p-2"></i>
                                                     <i class="fa-solid fa-share fa-2xl p-2" style="color: #ecb900;"></i>
                                                     <div class="comment-container">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <form action="comment" method="POST" id="commentForm" style="display: none;">
+                                                @csrf
+                                                <label for="exampleInputEmail1" class="form-label">Comment this post</label>
+                                                <div class="mb-3 d-flex">
 
+                                                    <input type="email" class="form-control">
+                                                    <button type="submit" class="btn btn-primary ms-2">Comment</button>
+                                                </div>
+
+                                            </form>
+                                            <div class="user-comment d-flex p-2 col-12">
+                                                <img src="images/logo.png" class="rounded-circle profile-img"
+                                                    alt="">
+                                                <div class="p-2">
+                                                    <a style="text-decoration: none; color: #000;" href="#">
+                                                        username20007
+                                                    </a>
+                                                    <div class="comment-list">
+                                                        Wow keren amat kucingnya
                                                     </div>
                                                 </div>
                                             </div>
@@ -47,15 +68,14 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="card p-2 ">
-                        <div class="header fs-5 mb-2 fw-bold px-2">
-                            Suggestions For You
+                        <div class="fs-5 header mb-2 fw-bolder px-2">
+                            Suggestion
                         </div>
-                        {{-- <span class="border-black border-top"></span> --}}
                         @foreach ($FakeNum as $fake)
                             <div class="row my-2">
                                 <div class="col-6 d-flex align-items-center px-4">
-                                        <img src="images/logo.png" class="rounded-circle profile-img" alt="">
-                                        <div class="px-2">Username</div>
+                                    <img src="images/logo.png" class="rounded-circle profile-img" alt="">
+                                    <div class="px-2">Username</div>
                                 </div>
                                 <div class="col-6 d-flex justify-content-end align-items-center">
                                     <a class="btn btn-primary" href="">Follow</a>
@@ -63,9 +83,9 @@
                             </div>
                             @if (!$loop->last)
                                 <span class="border-black border-bottom border-opacity-25"></span>
-                                {{-- Fake --}}
                             @endif
                         @endforeach
+
                     </div>
                 </div>
             </div>
@@ -76,6 +96,10 @@
         function likeBtn() {
             let heart = document.getElementById("like");
             heart.classList.toggle("fa-solid");
+        }
+        function toggleCommentForm() {
+            let commentForm = document.getElementById("commentForm");
+            commentForm.style.display = commentForm.style.display === "none" ? "block" : "none";
         }
     </script>
     </div>
