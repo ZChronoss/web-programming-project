@@ -24,7 +24,7 @@ class UserController extends Controller
 
         //logic buat nyari semua user yang blm difollow oleh logged in user
         $loggedInUserId = auth()->user()->id;
-        $followerIds = auth()->user()->profile->followers()->pluck('profile_id');
+        $followerIds = auth()->user()->profile->followers->pluck('profile_id');
 
         $userList = User::whereNotIn('id', $followerIds)->where('id', '!=', $loggedInUserId)->get();
 
