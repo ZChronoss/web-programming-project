@@ -54,6 +54,10 @@ route::get('/profile', function(){
 //     Route::post('/comment/{post}', [PostController::class, 'createComment']);
 // });
 Route::post('/comment/{post}', [CommentController::class, 'createComment']);
+// Route::prefix('post')->group(function(){
+//     Route::post('/comment/{post}', [PostController::class, 'createComment']);
+// });
+Route::post('/comment/{post}', [CommentController::class, 'createComment']);
 
 Route::get('/post/create', [PostController::class, 'create']);
 Route::post('/post/store', [PostController::class, 'store']);
