@@ -39,7 +39,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <form action="/comment/{{ $post->id }}" method="POST" id="commentForm" style="display: none;">
+                                        <form action="/comment/{{ $post->id }}" method="POST" id="commentForm{{ $post->id }}" style="display: none;">
                                             @csrf
                                             <label for="comment" class="form-label">Comment this post</label>
                                             <div class="mb-3 d-flex">
