@@ -22,15 +22,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/explore', function () {
+// Route::get('/explore', function () {
 
-        $FakeNum = [1,2,3,4,5];
-        $posts = Post::all();
+//         $FakeNum = [1,2,3,4,5];
+//         $posts = Post::all();
 
 
-        return view('explore', compact('posts', 'FakeNum'));
+//         return view('explore', compact('posts', 'FakeNum'));
 
-});
+// });
 Route::get('/explore', [UserController::class, 'explore']);
 
 Route::prefix('post')->group(function(){
