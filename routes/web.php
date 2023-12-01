@@ -61,3 +61,5 @@ Route::post('/comment/{post}', [CommentController::class, 'createComment']);
 
 Route::get('/post/create', [PostController::class, 'create']);
 Route::post('/post/store', [PostController::class, 'store']);
+
+Route::get('/{profileId}/follow', [UserController::class, 'follow']);

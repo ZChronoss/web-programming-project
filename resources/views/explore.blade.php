@@ -84,7 +84,7 @@
                                     <div class="px-2">{{ $user->name }}</div>
                             </div>
                             <div class="col-6 d-flex justify-content-end align-items-center">
-                                <a class="btn btn-primary" href="">Follow</a>
+                                <a class="btn btn-primary" href="/{{$user->id}}/follow">Follow</a>
                             </div>
                         </div>
                         @if (!$loop->last)
@@ -92,9 +92,8 @@
                             {{-- Fake --}}
                         @endif
                     @empty
-                        KOSONG
+                        No Users Available
                     @endforelse
-
                 </div>
             </div>
         </div>
