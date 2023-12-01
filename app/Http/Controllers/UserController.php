@@ -22,11 +22,13 @@ class UserController extends Controller
     public function explore(){
         //$userList = User::where('id', '!=', auth()->user()->id)->get();
 
-        //logic buat nyari semua user yang blm difollow oleh logged in user
         $loggedInUserId = auth()->user()->id;
-        $followerIds = auth()->user()->profile->followers->pluck('profile_id');
+        // $followerIds = auth()->user()->profile->followers->pluck('profile_id');
 
-        $userList = User::whereNotIn('id', $followerIds)->where('id', '!=', $loggedInUserId)->get();
+        //logic buat nyari semua user yang blm difollow oleh logged in user
+        $followingIds = auth()->user()->following()->pluck('profile_id');
+
+        $userList = User::whereNotIn('id', $followingIds)->where('id', '!=', $loggedInUserId)->get();
 
         $posts = Post::all();
 
