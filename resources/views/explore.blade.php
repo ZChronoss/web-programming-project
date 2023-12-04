@@ -92,6 +92,7 @@
                         <div class="row my-2">
                             <div class="col-6 d-flex align-items-center px-4">
                                     <img src="{{ $post->user->profile->profileImage() }}" class="rounded-circle profile-img" alt="">
+                                    {{-- <img src="{{ $post->user->profile->profileImage() }}" class="rounded-circle profile-img" alt=""> --}}
                                     <div class="px-2">{{ $user->name }}</div>
                             </div>
                             <div class="col-6 d-flex justify-content-end align-items-center">
