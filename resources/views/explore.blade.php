@@ -21,7 +21,7 @@
                         </div>
                         <div class="container">
                             <div class="row">
-                                <div class="post-Content col-12">
+                                <div class="post-Content col-12" id="post-{{ $post->id}}">
                                     <div class="photo d-flex justify-content-center">
                                         <img src="/storage/{{ $post->image }}" class="img-fluid img w-100" alt="...">
                                     </div>
@@ -36,7 +36,7 @@
                                                     $userLiked = auth()->user()->likes->contains($post->id);
                                                 @endphp
 
-                                                <a href="/{{ $post->id }}/like">
+                                                <a href="/{{ $post->id }}/like#post-{{ $post->id }}">
                                                     @if ($userLiked)
                                                         <i id="like" onclick="likeBtn(this)" style="color: #b51a00;" class="fa-solid fa-heart fa-2xl p-2"></i>
                                                     @else

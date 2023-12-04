@@ -62,7 +62,7 @@ class PostController extends Controller
             $message = 'Post liked.';
         }
 
-        return redirect('explore');
+        return redirect('explore#post-' . $post->id);
     }
 
 }
