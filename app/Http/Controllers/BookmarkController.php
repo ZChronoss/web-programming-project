@@ -11,12 +11,12 @@ class BookmarkController extends Controller
         $user = auth()->user();
         $targetPost = Post::findOrFail($post);
 
-        if ($user->bookmarkedPosts()->where('post_id', $targetPost->id)->exists()) {
+        if ($user->bookmarks()->where('post_id', $targetPost->id)->exists()) {
             // If the user already bookmarked the post, remove the bookmark
-            $user->bookmarkedPosts()->detach($targetPost->id);
+            $user->bookmarks()->detach($targetPost->id);
         } else {
             // If the user hasn't bookmarked the post, add the bookmark
-            $user->bookmarkedPosts()->attach($targetPost->id);
+            $user->bookmarks()->attach($targetPost->id);
         }
 
         return redirect('/explore');
