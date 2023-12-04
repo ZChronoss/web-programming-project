@@ -21,7 +21,7 @@
                         </div>
                         <div class="container">
                             <div class="row">
-                                <div class="post-Content col-12">
+                                <div class="post-Content col-12" id="post-{{ $post->id}}">
                                     <div class="photo d-flex justify-content-center">
                                         <img src="/storage/{{ $post->image }}" class="img-fluid img w-100" alt="...">
                                     </div>
@@ -31,20 +31,30 @@
                                                 {{ $post->caption }}
                                             </p>
                                             <div class="d-flex justify-content-evenly align-items-center details">
-                                                <i id="like" onclick="likeBtn(this)" style="color: #b51a00;"
-                                                    class="fa-regular fa-heart fa-2xl p-2"></i>
+                                            @if (auth()->check())
+                                                @php
+                                                    $userLiked = auth()->user()->likes->contains($post->id);
+                                                @endphp
+
+                                                <a href="/{{ $post->id }}/like#post-{{ $post->id }}">
+                                                    @if ($userLiked)
+                                                        <i id="like" onclick="likeBtn(this)" style="color: #b51a00;" class="fa-solid fa-heart fa-2xl p-2"></i>
+                                                    @else
+                                                        <i id="like" onclick="likeBtn(this)" style="color: #b51a00;" class="fa-regular fa-heart fa-2xl p-2"></i>
+                                                    @endif
+                                                </a>
+                                            @endif
                                                 <i id="comment" onclick="toggleCommentForm(this, {{ $post->id }})" class="fa-regular fa-comment fa-2xl p-2"></i>
                                                 <i class="fa-regular fa-share fa-2xl p-2" style="color: #ecb900;"></i>
                                                 <div class="comment-container">
                                                 </div>
                                             </div>
                                         </div>
-                                        <form action="" method="POST" id="commentForm{{ $post->id }}" style="display: none;">
+                                        <form action="/comment/{{ $post->id }}" method="POST" id="commentForm{{ $post->id }}" style="display: none;">
                                             @csrf
-                                            <label for="exampleInputEmail1" class="form-label">Comment this post</label>
+                                            <label for="comment" class="form-label">Comment this post</label>
                                             <div class="mb-3 d-flex">
-
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="comment">
                                                 <button type="submit" class="btn btn-primary ms-2">Comment</button>
                                             </div>
 
@@ -56,10 +66,10 @@
                                                 alt="">
                                             <div class="p-2">
                                                 <a style="text-decoration: none; color: #000;" href="#">
-                                                    username20007
+                                                    {{ $comment->user->name }}
                                                 </a>
                                                 <div class="comment-list">
-                                                    Wow keren amat kucingnya
+                                                    {{ $comment->comment }}
                                                 </div>
                                             </div>
                                         </div>
@@ -85,7 +95,7 @@
                                     <div class="px-2">{{ $user->name }}</div>
                             </div>
                             <div class="col-6 d-flex justify-content-end align-items-center">
-                                <a class="btn btn-primary" href="">Follow</a>
+                                <a class="btn btn-primary" href="/{{$user->id}}/follow">Follow</a>
                             </div>
                         </div>
                         @if (!$loop->last)
@@ -93,9 +103,8 @@
                             {{-- Fake --}}
                         @endif
                     @empty
-                        KOSONG
+                        No Users Available
                     @endforelse
-
                 </div>
             </div>
         </div>
@@ -104,9 +113,9 @@
 {{-- @endforeach --}}
     {{-- <script src="../../js/home.js"></script> --}}
     <script>
-        function likeBtn(likeIcon) {
-            likeIcon.classList.toggle("fa-solid");
-        }
+        // function likeBtn(likeIcon) {
+        //     likeIcon.classList.toggle("fa-solid");
+        // }
         // function likeBtn() {
         //     let heart = document.getElementById("like");
         //     heart.classList.toggle("fa-solid");

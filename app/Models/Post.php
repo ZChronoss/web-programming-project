@@ -23,7 +23,9 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function bookmark(){
-        return $this->hasMany(Bookmark::class);
+    public function bookmarks()
+    {
+        return $this->belongsToMany(User::class, 'bookmarks', 'post_id', 'user_id')
+            ->withTimestamps();
     }
 }

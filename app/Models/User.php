@@ -62,6 +62,10 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+
     public function following(){
         return $this->belongsToMany(Profile::class);
     }
@@ -70,7 +74,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Post::class);
     }
 
-    public function bookmark(){
-        return $this->hasMany(Bookmark::class);
+    public function bookmarks()
+    {
+        return $this->belongsToMany(Post::class, 'bookmarks', 'user_id', 'post_id')
+            ->withTimestamps();
     }
 }
