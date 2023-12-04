@@ -31,8 +31,19 @@
                                                 {{ $post->caption }}
                                             </p>
                                             <div class="d-flex justify-content-evenly align-items-center details">
-                                                <a href="/{{ $post->id }}/like "><i id="like" onclick="likeBtn(this)" style="color: #b51a00;"
-                                                    class="fa-regular fa-heart fa-2xl p-2"></i></a>
+                                            @if (auth()->check())
+                                                @php
+                                                    $userLiked = auth()->user()->likes->contains($post->id);
+                                                @endphp
+
+                                                <a href="/{{ $post->id }}/like">
+                                                    @if ($userLiked)
+                                                        <i id="like" onclick="likeBtn(this)" style="color: #b51a00;" class="fa-solid fa-heart fa-2xl p-2"></i>
+                                                    @else
+                                                        <i id="like" onclick="likeBtn(this)" style="color: #b51a00;" class="fa-regular fa-heart fa-2xl p-2"></i>
+                                                    @endif
+                                                </a>
+                                            @endif
                                                 <i id="comment" onclick="toggleCommentForm(this, {{ $post->id }})" class="fa-regular fa-comment fa-2xl p-2"></i>
                                                 <i class="fa-regular fa-share fa-2xl p-2" style="color: #ecb900;"></i>
                                                 <div class="comment-container">
@@ -102,9 +113,9 @@
 {{-- @endforeach --}}
     {{-- <script src="../../js/home.js"></script> --}}
     <script>
-        function likeBtn(likeIcon) {
-            likeIcon.classList.toggle("fa-solid");
-        }
+        // function likeBtn(likeIcon) {
+        //     likeIcon.classList.toggle("fa-solid");
+        // }
         // function likeBtn() {
         //     let heart = document.getElementById("like");
         //     heart.classList.toggle("fa-solid");
