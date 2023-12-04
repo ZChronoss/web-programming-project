@@ -31,8 +31,8 @@
                                                 {{ $post->caption }}
                                             </p>
                                             <div class="d-flex justify-content-evenly align-items-center details">
-                                                <i id="like" onclick="likeBtn(this)" style="color: #b51a00;"
-                                                    class="fa-regular fa-heart fa-2xl p-2"></i>
+                                                <a href="/{{ $post->id }}/like "><i id="like" onclick="likeBtn(this)" style="color: #b51a00;"
+                                                    class="fa-regular fa-heart fa-2xl p-2"></i></a>
                                                 <i id="comment" onclick="toggleCommentForm(this, {{ $post->id }})" class="fa-regular fa-comment fa-2xl p-2"></i>
                                                 <i class="fa-regular fa-share fa-2xl p-2" style="color: #ecb900;"></i>
                                                 <div class="comment-container">

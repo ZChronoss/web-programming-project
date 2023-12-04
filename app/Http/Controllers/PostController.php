@@ -48,6 +48,21 @@ class PostController extends Controller
         return redirect('explore');
     }
 
-    
+    public function like($postId){
+        $user = auth()->user();
+        $post = Post::findOrFail($postId);
+
+        if ($user->likes()->where('post_id', $post->id)->exists()) {
+            // If the user already liked the post, remove the like
+            $user->likes()->detach($post->id);
+            $message = 'Post unliked.';
+        } else {
+            // If the user hasn't liked the post, add the like
+            $user->likes()->attach($post->id);
+            $message = 'Post liked.';
+        }
+
+        return redirect('explore');
+    }
 
 }

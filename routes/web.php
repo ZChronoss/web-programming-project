@@ -66,3 +66,5 @@ Route::post('/post/store', [PostController::class, 'store']);
 Route::get('/{profileId}/follow', [UserController::class, 'follow']);
 
 Route::get('/{post}/bookmark', [BookmarkController::class, 'bookmark']);
+
+Route::get('/{postId}/like', [PostController::class, 'like']);
