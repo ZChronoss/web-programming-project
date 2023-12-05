@@ -41,7 +41,7 @@ class CommentFactory extends Factory
         return [
             'user_id' => fake()->randomElement($user_id),
             'post_id' => fake()->randomElement($post_id),
-            'text' => fake()->text()
+            'comment' => fake()->text()
         ];
     }
 }
