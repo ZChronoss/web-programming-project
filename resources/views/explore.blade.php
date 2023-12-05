@@ -59,10 +59,12 @@
                                                     <a style="text-decoration: none; color: #000;" href="/{{$liker->id}}/profile">
                                                         <span class="text-muted">{{ $liker->name }}</span>
                                                     </a>
-                                                    @if (!$loop->last), @endif
+                                                    @if (!$loop->last)
+                                                        <span class="text-muted">, <span class="text-muted">
+                                                    @endif
                                                 @endforeach
                                                 @if ($post->likes()->count() > 3)
-                                                    <span class="text-muted">and {{ $post->likes()->count() - 3 }} others</span>
+                                                    <span class="text-muted">and {{ $post->likes()->count() - 3 }} other(s)</span>
                                                 @endif
                                             @else
                                                 <span class="text-muted">No likes yet</span>
