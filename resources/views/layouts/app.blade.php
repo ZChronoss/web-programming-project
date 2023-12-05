@@ -65,6 +65,14 @@
                                 </div>
                             @endif
                         @else
+                            <button type="submit" class="btn btn-nav p-0 m-0">
+                                <a class="nav-link p-0 m-0 me-5 fw-light" style="text-decoration: none; color: black;" href="#">Explore</a>
+                            </button>
+
+                            <button type="submit" class="btn btn-nav p-0 m-0">
+                                <a class="nav-link p-0 m-0 me-5 fw-light" style="text-decoration: none; color: black;" href="#">Profile</a>
+                            </button>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -92,14 +100,17 @@
             @yield('content')
         </main>
 
-        <footer class="" style="background-color: #F3E9DC">
+        <footer class="container-fluid" style="background-color: #5E3023">
             <div class="container text-center p-5">
                 <div class="row align-items-start">
-                    <div class="col">
-                        SnapCat
+                    <div class="col text-end text-light m-0 p-0">
+                        <p class="m-0">SnapCat</p>
                     </div>
-                    <div class="col">
-                        Footer
+                    <div class="col-md-1 p-0">
+                        <img src="/images/navbar-logo.svg" class="" style="max-width: 3vh">
+                    </div>
+                    <div class="col text-start text-light m-0 p-0">
+                        <p class="m-0">Web Programming Project</p>
                     </div>
                 </div>
             </div>

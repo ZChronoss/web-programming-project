@@ -1,21 +1,20 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
-
-
-    <div class="row mx-1 justify" style="background: rgba(255, 255, 255, 0.11);
+<div class="container p-0">
+    <div class="row" style="background: rgba(255, 255, 255, 0.25);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.3);" >
+    border: 5px solid rgba(255, 255, 255, 0.3);"
+    >
         <div class="col-3 p-5">
             <img src="{{ $user->profile->profileImage() }}" class="rounded-circle w-100">
         </div>
-        <div class="col-9 pt-5">
-            <div class="d-flex justify-content-between align-items-baseline">
-                <div class="d-flex align-items-center pb-3">
-                    <div class="h4">{{$user->name}}</div>
+        <div class="col-9 p-5">
+            <div class="d-flex justify-content-between align-items-baseline mb-3">
+                <div class="d-flex align-items-center">
+                    <div class="h4 m-0">{{$user->name}}</div>
                     @cannot('update', $user->profile)
                         @if(!$follows)
                             <a class="btn btn-primary mx-3" href="/{{$user->id}}/follow">Follow</a>
@@ -25,7 +24,7 @@
                     @endcannot
                 </div>
                 @can('update', $user->profile)
-                    <a class="btn btn-primary" href="/p/create">Add New Post</a>
+                    <a class="btn btn-primary m-0" href="/p/create">Add New Post</a>
                 @endcan
             </div>
 
@@ -44,18 +43,20 @@
             <div>Bio Lorem</div>
             <div><a href="#">URL</a></div>
         </div>
+
+        <!-- <hr class="m-0"> -->
+
+        <div class="row m-3 p-0">
+            @foreach($posts as $post)
+                <div class="card photo d-flex justify-content-center col-4 p-0 m-0" style="border-radius: 16px;">
+                    <a href="#">
+                        <img src="/storage/{{ $post->image }}" class="img-fluid p-0 m-0">
+                    </a>
+                </div>
+            @endforeach
+        </div>
     </div>
 
-    <div class="row pt-5">
-        
-        @foreach($posts as $post)
-            <div class="card d-flex justify-content-center align-items-center col-4 pb-4 mx-3">
-                <a href=" ">
-                    <img src="/storage/{{ $post->image }}" class="w-100">
-                </a>
-            </div>
-        @endforeach
-    </div>
 </div>
 @endsection
 
