@@ -18,8 +18,7 @@ use App\Models\Post;
 */
 
 Route::get('/', function () {
-    return view('home');
-    return view('explore');
+    return redirect('explore');
 });
 
 Auth::routes();

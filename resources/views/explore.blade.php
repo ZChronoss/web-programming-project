@@ -7,7 +7,7 @@
     <div class="post-container">
         <div class="row justify-content-center">
             <div class="col-8">
-                @foreach ($posts as $post)
+                @forelse ($posts as $post)
                     <div class="card mb-4">
                         <div class="Header p-2">
                             <div class="d-flex Profile align-middl">
@@ -80,7 +80,9 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <p>No Posts</p>
+                @endforelse
             </div>
             <div class="col-4">
                 <div class="card p-2 ">
@@ -91,8 +93,7 @@
                     @forelse ($userList as $user)
                         <div class="row my-2">
                             <div class="col-6 d-flex align-items-center px-4">
-                                    <img src="{{ $post->user->profile->profileImage() }}" class="rounded-circle profile-img" alt="">
-                                    {{-- <img src="{{ $post->user->profile->profileImage() }}" class="rounded-circle profile-img" alt=""> --}}
+                                    <img src="{{ $user->profile->profileImage() }}" class="rounded-circle profile-img" alt="">
                                     <div class="px-2">{{ $user->name }}</div>
                             </div>
                             <div class="col-6 d-flex justify-content-end align-items-center">
