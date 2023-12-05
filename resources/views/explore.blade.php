@@ -3,13 +3,13 @@
 @section('content')
 {{-- @foreach ($posts as $post) --}}
 
-<div class="container d-block p-2 ">
+<div class="container d-block p-2">
     <div class="post-container">
         <div class="row justify-content-center">
             <div class="col-8">
                 @forelse ($posts as $post)
                     <div class="card mb-4">
-                        <div class="Header p-2">
+                        <div class="Header p-3">
                             <div class="d-flex Profile align-middl">
                                 <img src="{{ $post->user->profile->profileImage() }}" class="rounded-circle profile-img" alt="">
                                 <div class="fw-bolder p-2">
@@ -21,13 +21,13 @@
                         </div>
                         <div class="container">
                             <div class="row">
-                                <div class="post-Content col-12" id="post-{{ $post->id}}">
+                                <div class="post-Content col-12 p-0" id="post-{{ $post->id}}">
                                     <div class="photo d-flex justify-content-center">
-                                        <img src="/storage/{{ $post->image }}" class="img-fluid img w-100" alt="...">
+                                        <img src="/storage/{{ $post->image }}" class="img-fluid">
                                     </div>
-                                    <div class="postFooter p-2 mt-3 mb-3">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <p class="fs-5 m-0">
+                                    <div class="postFooter">
+                                        <div class="d-flex justify-content-between align-items-center p-3">
+                                            <p class="fs-6 m-0">
                                                 {{ $post->caption }}
                                             </p>
                                             <div class="d-flex justify-content-evenly align-items-center details">
@@ -50,20 +50,19 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <form action="/comment/{{ $post->id }}" method="POST" id="commentForm{{ $post->id }}" style="display: none;">
+                                        <hr class="m-0"> <!-- Line -->
+                                        <form class="p-3" action="/comment/{{ $post->id }}" method="POST" id="commentForm{{ $post->id }}" style="display: none;">
                                             @csrf
-                                            <label for="comment" class="form-label">Comment this post</label>
+                                            <h6 for="comment" class="form-label">Leave a comment on this post</h6>
                                             <div class="mb-3 d-flex">
                                                 <input type="text" class="form-control" name="comment">
                                                 <button type="submit" class="btn btn-primary ms-2">Comment</button>
                                             </div>
-
                                         </form>
 
                                         @foreach ($post->comments as $comment)
-                                        <div class="user-comment d-flex p-2 col-12">
-                                            <img src="images/logo.png" class="rounded-circle profile-img"
-                                                alt="">
+                                        <div class="user-comment d-flex pt-3 px-3 align-items-center">
+                                            <img src="images/logo.png" class="rounded-circle profile-img me-2" alt="">
                                             <div class="p-2">
                                                 <a style="text-decoration: none; color: #000;" href="/{{$comment->user->id}}/profile">
                                                     <b>{{ $comment->user->name }}</b>
@@ -80,20 +79,23 @@
                         </div>
                     </div>
                 @empty
-                    <p>No Posts</p>
+                    <div class="card align-items-center p-5">
+                        <h3 class="m-0">Oops! It seems like there was nothing posted yet..</h3>
+                    </div>
                 @endforelse
             </div>
             <div class="col-4">
-                <div class="card p-2 ">
-                    <div class="header fs-5 mb-2 fw-bold px-2">
+                <div class="card">
+                    <div class="header fs-5 fw-bold p-3">
                         Suggestions For You
                     </div>
                     {{-- <span class="border-black border-top"></span> --}}
                     @forelse ($userList as $user)
-                        <div class="row my-2">
-                            <div class="col-6 d-flex align-items-center px-4">
-                                    <img src="{{ $user->profile->profileImage() }}" class="rounded-circle profile-img" alt="">
-                                    <a class="ps-2" style="text-decoration: none; color: #000;" href="/{{$user->id}}/profile">
+                        <hr class="m-0"> <!-- Line -->
+                        <div class="row p-3">
+                            <div class="col-6 d-flex align-items-center py-2">
+                                    <img src="{{ $user->profile->profileImage() }}" class="rounded-circle profile-img pe-2" alt="">
+                                    <a style="text-decoration: none; color: #000;" href="/{{$user->id}}/profile">
                                         {{ $user->name }}
                                     </a>
                             </div>
@@ -101,10 +103,10 @@
                                 <a class="btn btn-primary" href="/{{$user->id}}/follow">Follow</a>
                             </div>
                         </div>
-                        @if (!$loop->last)
+                        <!-- @if (!$loop->last)
                             <span class="border-black border-bottom border-opacity-25"></span>
                             {{-- Fake --}}
-                        @endif
+                        @endif -->
                     @empty
                         No Users Available
                     @endforelse
