@@ -16,7 +16,11 @@
             <div class="d-flex justify-content-between align-items-baseline">
                 <div class="d-flex align-items-center pb-3">
                     <div class="h4">{{$user->name}}</div>
-                    
+                    @if(!$follows)
+                        <a class="btn btn-primary mx-3" href="/{{$user->id}}/follow">Follow</a>
+                    @else
+                        <a class="btn btn-primary mx-3" href="/{{$user->id}}/unfollow">Unfollow</a>
+                    @endif
                 </div>
                 @can('update', $user->profile)
                     <a class="btn btn-primary" href="/p/create">Add New Post</a>

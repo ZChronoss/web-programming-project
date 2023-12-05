@@ -52,6 +52,7 @@ Route::get('/post/create', [PostController::class, 'create']);
 Route::post('/post/store', [PostController::class, 'store']);
 
 Route::get('/{profileId}/follow', [UserController::class, 'follow']);
+Route::get('/{profileId}/unfollow', [UserController::class, 'unfollow']);
 
 Route::get('/{post}/bookmark', [BookmarkController::class, 'bookmark']);
 
