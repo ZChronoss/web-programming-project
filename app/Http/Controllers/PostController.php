@@ -69,4 +69,8 @@ class PostController extends Controller
         return redirect('explore#post-' . $post->id);
     }
 
+    public function show(Post $post){
+        return view('post.show', compact('post'));
+    }
+
 }

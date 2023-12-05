@@ -31,10 +31,10 @@
     </div>
 
     <div class="row pt-5">
-        
+
         @foreach($posts as $post)
             <div class="card d-flex justify-content-center align-items-center col-4 pb-4 mx-3">
-                <a href=" ">
+                <a href="/post/{{ $post->id }}">
                     <img src="/storage/{{ $post->image }}" class="w-100">
                 </a>
             </div>
