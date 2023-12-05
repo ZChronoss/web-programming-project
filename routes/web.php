@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookmarkController;
+use App\Http\Controllers\ProfileController;
 use App\Models\Post;
 /*
 |--------------------------------------------------------------------------
@@ -68,3 +69,5 @@ Route::get('/{profileId}/follow', [UserController::class, 'follow']);
 Route::get('/{post}/bookmark', [BookmarkController::class, 'bookmark']);
 
 Route::get('/{postId}/like', [PostController::class, 'like']);
+
+Route::get('/{userId}/profile', [ProfileController::class, 'profile']);

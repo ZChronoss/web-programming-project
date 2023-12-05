@@ -13,7 +13,7 @@
                             <div class="d-flex Profile align-middl">
                                 <img src="{{ $post->user->profile->profileImage() }}" class="rounded-circle profile-img" alt="">
                                 <div class="fw-bolder p-2">
-                                    <a style="text-decoration: none; color: #000;" href="#">
+                                    <a style="text-decoration: none; color: #000;" href="/{{$post->user->id}}/profile">
                                         {{ $post->user->name }}
                                     </a>
                                 </div>
@@ -65,8 +65,8 @@
                                             <img src="images/logo.png" class="rounded-circle profile-img"
                                                 alt="">
                                             <div class="p-2">
-                                                <a style="text-decoration: none; color: #000;" href="#">
-                                                    {{ $comment->user->name }}
+                                                <a style="text-decoration: none; color: #000;" href="/{{$comment->user->id}}/profile">
+                                                    <b>{{ $comment->user->name }}</b>
                                                 </a>
                                                 <div class="comment-list">
                                                     {{ $comment->comment }}
@@ -94,7 +94,9 @@
                         <div class="row my-2">
                             <div class="col-6 d-flex align-items-center px-4">
                                     <img src="{{ $user->profile->profileImage() }}" class="rounded-circle profile-img" alt="">
-                                    <div class="px-2">{{ $user->name }}</div>
+                                    <a class="ps-2" style="text-decoration: none; color: #000;" href="/{{$user->id}}/profile">
+                                        {{ $user->name }}
+                                    </a>
                             </div>
                             <div class="col-6 d-flex justify-content-end align-items-center">
                                 <a class="btn btn-primary" href="/{{$user->id}}/follow">Follow</a>

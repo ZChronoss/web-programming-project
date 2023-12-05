@@ -10,4 +10,8 @@ class ProfileController extends Controller
     {
         $this->middleware('auth');
     }
+    
+    public function profile($userId) {
+        
+    }
 }
