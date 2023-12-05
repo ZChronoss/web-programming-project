@@ -91,6 +91,19 @@
         <main class="py-5">
             @yield('content')
         </main>
+
+        <footer class="" style="background-color: #F3E9DC">
+            <div class="container text-center p-5">
+                <div class="row align-items-start">
+                    <div class="col">
+                        SnapCat
+                    </div>
+                    <div class="col">
+                        Footer
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 

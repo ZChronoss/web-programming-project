@@ -6,16 +6,27 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Create Post') }}
+                    <div class="header fs-5 fw-bold p-3">
+                        Create Post
                     </div>
-                    <div class="card-body mt-25">
+                    <hr class="m-0"> <!-- Line -->
+                    <div class="card-body p-3">
                         <form method="POST" enctype="multipart/form-data" action="/post/store">
                             @csrf
+                            <div class="row p-0">
+                                <label for="image" class="fw-bold px-3 mb-3">Upload Image</label>
 
-                            <div class="row mb-3">
-                                <label for="caption" class="col-md-4 col-form-label text-md-end">Caption</label>
+                                <input type="file" class="form-control-file px-3 mb-3" id="image" name="image">
 
-                                <div class="col-md-6">
+                                @error('image')
+                                    <strong>{{ $message }}</strong>
+                                @enderror
+                            </div>
+
+                            <div class="row p-0 mb-3">
+                                <label for="caption" class="fw-bold mb-3 px-3">Caption</label>
+
+                                <div class="col px-3">
                                     <input id="caption" type="text" class="form-control" name="caption" autofocus>
 
                                     @error('caption')
@@ -26,26 +37,19 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
-                                <label for="image" class="col-md-4 col-form-label text-md-end">Post Image</label>
-                                <input type="file" class="form-control-file" id="image" name="image">
-
-                                @error('image')
-                                    <strong>{{ $message }}</strong>
-                                @enderror
-                            </div>
-
-                            <div class="row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn md-3 btn-primary">
-                                        Create Post!
-                                    </button>
-                                    {{-- <span>Don’t have an account?
-                                        <a href="">Create Account</a>
-                                    </span> --}}
-                                </div>
-                            </div>
                         </form>
+                    </div>
+
+                    <hr class="m-0"> <!-- Line -->
+                    <div class="row p-3">
+                        <div class="col px-3 d-flex justify-content-end">
+                            <button type="submit" class="btn md-3 btn-primary">
+                                Create Post
+                            </button>
+                            {{-- <span>Don’t have an account?
+                                <a href="">Create Account</a>
+                            </span> --}}
+                        </div>
                     </div>
                 </div>
             </div>
