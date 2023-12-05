@@ -52,6 +52,22 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="div mx-3">
+                                            @if($post->likes()->count() > 0)
+                                                <span class="text-muted">liked by</span>
+                                                @foreach($post->likes()->take(3)->get() as $liker)
+                                                    <a style="text-decoration: none; color: #000;" href="/{{$liker->id}}/profile">
+                                                        <span class="text-muted">{{ $liker->name }}</span>
+                                                    </a>
+                                                    @if (!$loop->last), @endif
+                                                @endforeach
+                                                @if ($post->likes()->count() > 3)
+                                                    <span class="text-muted">and {{ $post->likes()->count() - 3 }} others</span>
+                                                @endif
+                                            @else
+                                                <span class="text-muted">No likes yet</span>
+                                            @endif
+                                        </div>
                                         <hr class="m-0"> <!-- Line -->
                                         <form class="p-3" action="/comment/{{ $post->id }}" method="POST" id="commentForm{{ $post->id }}" style="display: none;">
                                             @csrf
