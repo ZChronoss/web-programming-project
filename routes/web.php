@@ -39,19 +39,6 @@ Route::prefix('post')->group(function(){
     Route::post('/{postId}/comment', [PostController::class, 'createComment']);
 });
 
-route::get('/profile', function(){
-
-    $FakeNum = [1,2,3,4,5,6];
-
-    return view('profile', compact('FakeNum'));
-});
-
-route::get('/profile', function(){
-
-    $FakeNum = [1,2,3,4,5,6];
-
-    return view('profile', compact('FakeNum'));
-});
 // Route::prefix('post')->group(function(){
 //     Route::post('/comment/{post}', [PostController::class, 'createComment']);
 // });

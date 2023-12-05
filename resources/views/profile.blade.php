@@ -10,21 +10,19 @@
     -webkit-backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.3);" >
         <div class="col-3 p-5">
-            <img src="images/logo.png" class="rounded-circle w-100">
+            <img src="{{ $user->profile->profileImage() }}" class="rounded-circle w-100">
         </div>
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
                 <div class="d-flex align-items-center pb-3">
-                    <div class="h4">Username</div>
+                    <div class="h4">{{$user->name}}</div>
                 </div>
             </div>
 
-
-
             <div class="d-flex">
-                <div class="pe-5"><strong>12</strong> posts</div>
-                <div class="pe-5"><strong>222</strong> followers</div>
-                <div class="pe-5"><strong>44444</strong> following</div>
+                <div class="pe-5"><strong>{{$postCount}}</strong> posts</div>
+                <div class="pe-5"><strong>{{$followersCount}}</strong> followers</div>
+                <div class="pe-5"><strong>{{$followingCount}}</strong> following</div>
             </div>
             <div class="pt-4 font-weight-bold">Lorem Ipsum</div>
             <div>Bio Lorem</div>
@@ -33,17 +31,14 @@
     </div>
 
     <div class="row pt-5">
-        @foreach ($FakeNum as $fake)
-        <div class="col-4 pb-4">
-            <a href=" ">
-                <img src="images/login-bg.png" class="w-100">
-            </a>
-        </div>
+        
+        @foreach($posts as $post)
+            <div class="card d-flex justify-content-center align-items-center col-4 pb-4 mx-3">
+                <a href=" ">
+                    <img src="/storage/{{ $post->image }}" class="w-100">
+                </a>
+            </div>
         @endforeach
-
-        {{-- @foreach($user->posts as $post)
-
-        @endforeach --}}
     </div>
 </div>
 @endsection
