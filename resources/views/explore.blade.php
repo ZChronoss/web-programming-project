@@ -43,8 +43,10 @@
                                                         <i id="like" onclick="likeBtn(this)" style="color: #b51a00;" class="fa-regular fa-heart fa-2xl p-2"></i>
                                                     @endif
                                                 </a>
+                                                <span class="fw-bold">{{ $post->likes()->count() }}</span>
                                             @endif
                                                 <i id="comment" onclick="toggleCommentForm(this, {{ $post->id }})" class="fa-regular fa-comment fa-2xl p-2"></i>
+                                                <span class="fw-bold">{{ $post->comments()->count() }}</span>
                                                 <i class="fa-regular fa-share fa-2xl p-2" style="color: #ecb900;"></i>
                                                 <div class="comment-container">
                                                 </div>
