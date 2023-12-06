@@ -110,7 +110,7 @@
                             {{-- Fake --}}
                         @endif -->
                     @empty
-                        No Users Available
+                        <h6 class="px-3">No Users Available</h6>
                     @endforelse
                 </div>
             </div>

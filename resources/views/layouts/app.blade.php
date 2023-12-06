@@ -66,11 +66,11 @@
                             @endif
                         @else
                             <button type="submit" class="btn btn-nav p-0 m-0">
-                                <a class="nav-link p-0 m-0 me-5 fw-light" style="text-decoration: none; color: black;" href="#">Explore</a>
+                                <a class="nav-link p-0 m-0 me-5 fw-light" style="text-decoration: none; color: black;" href="explore">Explore</a>
                             </button>
 
                             <button type="submit" class="btn btn-nav p-0 m-0">
-                                <a class="nav-link p-0 m-0 me-5 fw-light" style="text-decoration: none; color: black;" href="#">Profile</a>
+                                <a class="nav-link p-0 m-0 me-5 fw-light" style="text-decoration: none; color: black;" href="home">Profile</a>
                             </button>
 
                             <li class="nav-item dropdown">
@@ -100,7 +100,7 @@
             @yield('content')
         </main>
 
-        <footer class="container-fluid" style="background-color: #5E3023">
+        <footer class="container-fluid position-sticky" style="background-color: #5E3023">
             <div class="container text-center p-5">
                 <div class="row align-items-start">
                     <div class="col text-end text-light m-0 p-0">
