@@ -70,7 +70,7 @@
                             </button>
 
                             <button type="submit" class="btn btn-nav p-0 m-0">
-                                <a class="nav-link p-0 m-0 me-5 fw-light" style="text-decoration: none; color: black;" href="home">Profile</a>
+                                <a class="nav-link p-0 m-0 me-5 fw-light" style="text-decoration: none; color: black;" href="/{{auth()->user()->id}}/profile">Profile</a>
                             </button>
 
                             <li class="nav-item dropdown">
