@@ -100,7 +100,7 @@
             @yield('content')
         </main>
 
-        <footer class="container-fluid position-sticky" style="background-color: #5E3023">
+        <footer class="container-fluid" style="">
             <div class="container text-center p-5">
                 <div class="row align-items-start">
                     <div class="col text-end text-light m-0 p-0">
