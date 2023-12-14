@@ -59,3 +59,4 @@ Route::get('/{post}/bookmark', [BookmarkController::class, 'bookmark']);
 Route::get('/{postId}/like', [PostController::class, 'like']);
 Route::get('/profile', [ProfileController::class, 'profile']);
 Route::get('/{userId}/profile', [ProfileController::class, 'profile']);
+Route::get('/profile/{userId}/edit', [ProfileController::class, 'profile']);
