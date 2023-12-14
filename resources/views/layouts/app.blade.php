@@ -27,8 +27,8 @@
     <div id="app">
         <nav style="background-color: #F3E9DC" class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
-                <a class="navbar-brand ms-5" href="{{ url('/') }}">
-                    <img src="/images/navbar-logo.svg" style="max-width: 30px ">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="/images/navbar-logo.svg" style="max-width: 30px">
                     {{ config('Snapcat', 'Snapcat') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -46,7 +46,7 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <div class="ms-5">
+                                <div>
                                     <li class="nav-item">
                                         <div  class="btn btn-outline-primary btn-nav">
                                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -56,8 +56,8 @@
                             @endif
 
                             @if (Route::has('register'))
-                                <div class="ms-5">
-                                    <li class="nav-item ">
+                                <div class="ms-3">
+                                    <li class="nav-item">
                                         <div class="btn btn-nav btn-outline-primary">
                                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                         </div>
@@ -65,6 +65,14 @@
                                 </div>
                             @endif
                         @else
+                            <button type="submit" class="btn btn-nav p-0 m-0">
+                                <a class="nav-link p-0 m-0 me-5 fw-light" style="text-decoration: none; color: black;" href="explore">Explore</a>
+                            </button>
+
+                            <button type="submit" class="btn btn-nav p-0 m-0">
+                                <a class="nav-link p-0 m-0 me-5 fw-light" style="text-decoration: none; color: black;" href="/{{auth()->user()->id}}/profile">Profile</a>
+                            </button>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -88,9 +96,25 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-5">
             @yield('content')
         </main>
+
+        <footer class="container-fluid" style="">
+            <div class="container text-center p-5">
+                <div class="row align-items-start">
+                    <div class="col text-end text-light m-0 p-0">
+                        <p class="m-0">SnapCat</p>
+                    </div>
+                    <div class="col-md-1 p-0">
+                        <img src="/images/navbar-logo.svg" class="" style="max-width: 3vh">
+                    </div>
+                    <div class="col text-start text-light m-0 p-0">
+                        <p class="m-0">Web Programming Project</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 

@@ -17,6 +17,8 @@ class ProfileController extends Controller
     public function profile($userId) {
         $user = User::findOrFail($userId);
 
+        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
+
         $postCount = Cache::remember(
             'count.posts.' . $user->id,
             now()->addSeconds(30),
@@ -40,6 +42,6 @@ class ProfileController extends Controller
 
         $posts = $user->posts;
 
-        return view('profile', compact('user', 'postCount', 'followersCount', 'followingCount', 'posts'));
+        return view('profile', compact('user', 'postCount', 'followersCount', 'followingCount', 'posts', 'follows'));
     }
 }

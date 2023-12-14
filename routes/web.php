@@ -50,8 +50,10 @@ Route::get('/{postId}/like', [PostController::class, 'like']);
 Route::get('/post/{post}', [PostController::class, 'show']);
 
 Route::get('/{profileId}/follow', [UserController::class, 'follow']);
+Route::get('/{profileId}/unfollow', [UserController::class, 'unfollow']);
 
 Route::get('/{post}/bookmark', [BookmarkController::class, 'bookmark']);
 
+Route::get('/{postId}/like', [PostController::class, 'like']);
 
-Route::get('/profile/{user}', [ProfileController::class, 'profile']);
+Route::get('/{userId}/profile', [ProfileController::class, 'profile']);

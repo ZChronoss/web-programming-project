@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+
 use App\Models\User;
 use App\Models\Post;
 
@@ -41,6 +43,15 @@ class UserController extends Controller
 
         $user->following()->attach($following);
 
-        return redirect('/explore');
+        return Response::make('', 200)->header('Refresh', '0;url=' . url()->previous());
+    }
+
+    public function unfollow($profileId){
+        $user = auth()->user();
+        $following = User::find($profileId);
+
+        $user->following()->detach($following);
+
+        return Response::make('', 200)->header('Refresh', '0;url=' . url()->previous());
     }
 }
