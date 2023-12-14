@@ -24,12 +24,12 @@
                     @endcannot
                 </div>
                 @can('update', $user->profile)
-                    <a class="btn btn-primary m-0" href="/p/create">Add New Post</a>
+                    <a class="btn btn-primary m-0" href="/post/create">Add New Post</a>
                 @endcan
             </div>
 
             @can('update', $user->profile)
-                <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+                <a href="/profile/edit">Edit Profile</a>
             @endcan
 
 
@@ -39,17 +39,15 @@
                 <div class="pe-5"><strong>{{$followersCount}}</strong> followers</div>
                 <div class="pe-5"><strong>{{$followingCount}}</strong> following</div>
             </div>
-            <div class="pt-4 font-weight-bold">Lorem Ipsum</div>
-            <div>Bio Lorem</div>
-            <div><a href="#">URL</a></div>
+            <div class="pt-4 font-weight-bold">{{ $user->profile->description }}</div>
         </div>
 
     <div class="row pt-5">
 
         @foreach($posts as $post)
-            <div class="card d-flex justify-content-center align-items-center col-4 pb-4 mx-3">
-                <a href=" ">
-                    <img src="/storage/{{ $post->image }}" class="w-100">
+            <div class="grid card d-flex justify-content-center align-items-center col-4 mx-3">
+                <a href="/post/{{ $post->id }}">
+                    <img src="/storage/{{ $post->image }}" class="w-100 g-col-4">
                 </a>
             </div>
         @endforeach
