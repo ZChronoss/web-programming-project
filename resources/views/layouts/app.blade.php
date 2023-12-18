@@ -66,7 +66,7 @@
                             @endif
                         @else
                             <button type="submit" class="btn btn-nav p-0 m-0">
-                                <a class="nav-link p-0 m-0 me-5 fw-light" style="text-decoration: none; color: black;" href="explore">Explore</a>
+                                <a class="nav-link p-0 m-0 me-5 fw-light" style="text-decoration: none; color: black;" href="/explore">Explore</a>
                             </button>
 
                             <button type="submit" class="btn btn-nav p-0 m-0">
