@@ -7,19 +7,19 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="header fs-5 fw-bold p-3">
-                        Create Post
+                        Edit Profile
                     </div>
                     <hr class="m-0"> <!-- Line -->
                     <div class="card-body p-0">
-                        <form method="POST" enctype="multipart/form-data" action="/post/store">
+                        <form method="POST" enctype="multipart/form-data" action="/profile/update">
                             @csrf
                             <div class="row p-3">
-                                <label for="caption" class="fw-bold mb-3 px-3">Caption</label>
+                                <label for="description" class="fw-bold mb-3 px-3">Description</label>
 
                                 <div class="col px-3">
-                                    <input id="caption" type="text" class="form-control" name="caption" autofocus>
+                                    <input id="description" type="text" class="form-control" name="description" autofocus value="{{ auth()->user()->profile->description }}">
 
-                                    @error('caption')
+                                    @error('description')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="row p-3">
-                                <label for="image" class="fw-bold px-3 mb-3">Upload Image</label>
+                                <label for="image" class="fw-bold px-3 mb-3">Profile Image</label>
 
                                 <input type="file" class="form-control-file px-3 mb-3" id="image" name="image">
 
@@ -42,7 +42,7 @@
                             <div class="row p-3">
                                 <div class="col px-3 d-flex justify-content-end">
                                     <button type="submit" class="btn md-3 btn-primary">
-                                        Create Post
+                                        Update Profile
                                     </button>
                                 </div>
                             </div>

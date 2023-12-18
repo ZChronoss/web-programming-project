@@ -24,32 +24,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/explore', function () {
-
-//         $FakeNum = [1,2,3,4,5];
-//         $posts = Post::all();
-
-
-//         return view('explore', compact('posts', 'FakeNum'));
-
-// });
 Route::get('/explore', [UserController::class, 'explore']);
-
-Route::prefix('post')->group(function(){
-    Route::post('/{postId}/comment', [PostController::class, 'createComment']);
-});
-
-// Route::prefix('post')->group(function(){
-//     Route::post('/comment/{post}', [PostController::class, 'createComment']);
-// });
-Route::post('/comment/{post}', [CommentController::class, 'createComment']);
-// Route::prefix('post')->group(function(){
-//     Route::post('/comment/{post}', [PostController::class, 'createComment']);
-// });
 Route::post('/comment/{post}', [CommentController::class, 'createComment']);
 
 Route::get('/post/create', [PostController::class, 'create']);
 Route::post('/post/store', [PostController::class, 'store']);
+Route::get('/{postId}/like', [PostController::class, 'like']);
+Route::get('/post/{post}', [PostController::class, 'show']);
 
 Route::get('/{profileId}/follow', [UserController::class, 'follow']);
 Route::get('/{profileId}/unfollow', [UserController::class, 'unfollow']);
@@ -57,6 +38,7 @@ Route::get('/{profileId}/unfollow', [UserController::class, 'unfollow']);
 Route::get('/{post}/bookmark', [BookmarkController::class, 'bookmark']);
 
 Route::get('/{postId}/like', [PostController::class, 'like']);
-Route::get('/profile', [ProfileController::class, 'profile']);
+
 Route::get('/{userId}/profile', [ProfileController::class, 'profile']);
-Route::get('/profile/{userId}/edit', [ProfileController::class, 'profile']);
+Route::get('/profile/edit', [ProfileController::class, 'edit']);
+Route::post('/profile/update', [ProfileController::class, 'update']);

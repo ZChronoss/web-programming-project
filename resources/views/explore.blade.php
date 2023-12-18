@@ -52,20 +52,21 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <hr class="m-0 mb-3"> <!-- Line -->
-                                        <form class="p-3 pt-0" action="/comment/{{ $post->id }}" method="POST" id="commentForm{{ $post->id }}" style="display: none;">
+                                        <hr class="m-0"> <!-- Line -->
+                                        <form class="p-3 pb-0" action="/comment/{{ $post->id }}" method="POST" id="commentForm{{ $post->id }}" style="display: none;">
                                             @csrf
                                             <h6 for="comment" class="form-label">Leave a comment on this post</h6>
                                             <div class="mb-3 d-flex">
                                                 <input type="text" class="form-control" name="comment">
                                                 <button type="submit" class="btn btn-primary ms-2">Comment</button>
                                             </div>
+                                            <hr class="m-0"> <!-- Line -->
                                         </form>
 
                                         @foreach ($post->comments as $comment)
-                                        <div class="user-comment d-flex pb-3 px-3 align-items-center">
+                                        <div class="user-comment d-flex pb-0 px-3 align-items-center">
                                             <img src="images/logo.png" class="rounded-circle profile-img me-2">
-                                            <div class="p-2">
+                                            <div class="py-3 px-2">
                                                 <a style="text-decoration: none; color: #000;" href="/{{$comment->user->id}}/profile">
                                                     <b>{{ $comment->user->name }}</b>
                                                 </a>
