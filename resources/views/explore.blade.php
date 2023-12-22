@@ -55,10 +55,10 @@
                                         <hr class="m-0 mb-3"> <!-- Line -->
                                         <form class="p-3 pt-0" action="/comment/{{ $post->id }}" method="POST" id="commentForm{{ $post->id }}" style="display: none;">
                                             @csrf
-                                            <h6 for="comment" class="form-label">Leave a comment on this post</h6>
+                                            <h6 for="comment" class="form-label">{{ __('Leave a comment on this post') }}</h6>
                                             <div class="mb-3 d-flex">
                                                 <input type="text" class="form-control" name="comment">
-                                                <button type="submit" class="btn btn-primary ms-2">Comment</button>
+                                                <button type="submit" class="btn btn-primary ms-2">{{ __('Comment') }}</button>
                                             </div>
                                         </form>
 
@@ -82,14 +82,14 @@
                     </div>
                 @empty
                     <div class="card align-items-center p-5">
-                        <h3 class="m-0">Oops! It seems like there was nothing posted yet..</h3>
+                        <h3 class="m-0">{{ __('Oops! It seems like there was nothing posted yet..') }}</h3>
                     </div>
                 @endforelse
             </div>
             <div class="col-4">
                 <div class="card">
                     <div class="header fs-5 fw-bold p-3">
-                        Suggestions For You
+                        {{ __('Suggestions For You') }}
                     </div>
                     {{-- <span class="border-black border-top"></span> --}}
                     @forelse ($userList as $user)
@@ -102,7 +102,7 @@
                                     </a>
                             </div>
                             <div class="col-6 d-flex justify-content-end align-items-center">
-                                <a class="btn btn-primary" href="/{{$user->id}}/follow">Follow</a>
+                                <a class="btn btn-primary" href="/{{$user->id}}/follow">{{ __('Follow') }}</a>
                             </div>
                         </div>
                         <!-- @if (!$loop->last)
@@ -110,7 +110,7 @@
                             {{-- Fake --}}
                         @endif -->
                     @empty
-                        <h6 class="px-3">No Users Available</h6>
+                        <h6 class="px-3">{{ __('No Users Available') }}</h6>
                     @endforelse
                 </div>
             </div>

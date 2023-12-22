@@ -17,27 +17,27 @@
                     <div class="h4 m-0">{{$user->name}}</div>
                     @cannot('update', $user->profile)
                         @if(!$follows)
-                            <a class="btn btn-primary mx-3" href="/{{$user->id}}/follow">Follow</a>
+                            <a class="btn btn-primary mx-3" href="/{{$user->id}}/follow">{{ __('Follow') }}</a>
                         @else
-                            <a class="btn btn-primary mx-3" href="/{{$user->id}}/unfollow">Unfollow</a>
+                            <a class="btn btn-primary mx-3" href="/{{$user->id}}/unfollow">{{ __('Unfollow') }}</a>
                         @endif
                     @endcannot
                 </div>
                 @can('update', $user->profile)
-                    <a class="btn btn-primary m-0" href="/post/create">Add New Post</a>
+                    <a class="btn btn-primary m-0" href="/post/create">{{ __('Add New Post') }}</a>
                 @endcan
             </div>
 
             @can('update', $user->profile)
-                <a href="/profile/edit">Edit Profile</a>
+                <a href="/profile/edit">{{ __('Edit Profile') }}</a>
             @endcan
 
 
 
             <div class="d-flex">
                 <div class="pe-5"><strong>{{$postCount}}</strong> posts</div>
-                <div class="pe-5"><strong>{{$followersCount}}</strong> followers</div>
-                <div class="pe-5"><strong>{{$followingCount}}</strong> following</div>
+                <div class="pe-5"><strong>{{$followersCount}}</strong> {{ __('followers') }}</div>
+                <div class="pe-5"><strong>{{$followingCount}}</strong> {{ __('following') }}</div>
             </div>
             <div class="pt-4 font-weight-bold">{{ $user->profile->description }}</div>
         </div>

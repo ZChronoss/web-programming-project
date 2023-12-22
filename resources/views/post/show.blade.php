@@ -32,7 +32,7 @@
                                 {{ $post->user->name }}
                             </span>
                         </a>
-                        <a href="#" class="ps-3" style="text-decoration: none;">Follow</a>
+                        <a href="#" class="ps-3" style="text-decoration: none;">{{ __('Follow') }}</a>
                     </div>
                 </div>
             </div>

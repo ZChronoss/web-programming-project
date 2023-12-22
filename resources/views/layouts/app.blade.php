@@ -66,11 +66,11 @@
                             @endif
                         @else
                             <button type="submit" class="btn btn-nav p-0 m-0">
-                                <a class="nav-link p-0 m-0 me-5 fw-light" style="text-decoration: none; color: black;" href="/explore">Explore</a>
+                                <a class="nav-link p-0 m-0 me-5 fw-light" style="text-decoration: none; color: black;" href="/explore">{{ __('Explore') }}</a>
                             </button>
 
                             <button type="submit" class="btn btn-nav p-0 m-0">
-                                <a class="nav-link p-0 m-0 me-5 fw-light" style="text-decoration: none; color: black;" href="/{{auth()->user()->id}}/profile">Profile</a>
+                                <a class="nav-link p-0 m-0 me-5 fw-light" style="text-decoration: none; color: black;" href="/{{auth()->user()->id}}/profile">{{ __('Profile') }}</a>
                             </button>
 
                             <li class="nav-item dropdown">
@@ -112,6 +112,7 @@
                     <div class="col text-start text-light m-0 p-0">
                         <p class="m-0">Web Programming Project</p>
                     </div>
+                    @include('partials/language_switcher')
                 </div>
             </div>
         </footer>

@@ -96,7 +96,12 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'id',
+
+    'available_locales' => [
+        'English' => 'en',
+        'Indonesian' => 'id'
+    ],
 
     /*
     |--------------------------------------------------------------------------
