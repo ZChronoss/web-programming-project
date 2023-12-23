@@ -66,11 +66,14 @@ class PostController extends Controller
             $message = 'Post liked.';
         }
 
-        return redirect('explore#post-' . $post->id);
+        return redirect()->back();
     }
 
     public function show(Post $post){
-        return view('post.show', compact('post'));
+        $user = $post->user;
+        $userLiked = auth()->user()->likes->contains($post->id);
+        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
+        return view('post.show', compact('post', 'follows', 'userLiked'));
     }
 
 }

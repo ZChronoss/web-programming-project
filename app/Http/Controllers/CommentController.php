@@ -26,6 +26,6 @@ class CommentController extends Controller
 
         // $post->comments()->create($comment);
 
-        return redirect('/explore');
+        return redirect()->back();
     }
 }
