@@ -40,7 +40,7 @@ class UserController extends Controller
 
         $user->following()->attach($following);
 
-        return Response::make('', 200)->header('Refresh', '0;url=' . url()->previous());
+        return redirect()->back();
     }
 
     public function unfollow($profileId){
@@ -49,6 +49,6 @@ class UserController extends Controller
 
         $user->following()->detach($following);
 
-        return Response::make('', 200)->header('Refresh', '0;url=' . url()->previous());
+        return redirect()->back();
     }
 }
