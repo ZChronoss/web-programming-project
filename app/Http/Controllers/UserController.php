@@ -29,7 +29,7 @@ class UserController extends Controller
 
         $userList = User::whereNotIn('id', $followingIds)->where('id', '!=', $loggedInUserId)->get();
 
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at', 'desc')->get();
 
         return view('explore', compact('userList', 'posts'));
     }

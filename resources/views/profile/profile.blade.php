@@ -42,10 +42,10 @@
             <div class="pt-4 font-weight-bold">{{ $user->profile->description }}</div>
         </div>
 
-    <div class="row pt-5">
+    <div class="row pt-5 d-flex justify-content-center align-items-center">
 
         @foreach($posts as $post)
-            <div class="grid card d-flex justify-content-center align-items-center col-4 mx-3">
+            <div class="col-4">
                 <a href="/post/{{ $post->id }}">
                     <img src="/storage/{{ $post->image }}" class="w-100 g-col-4">
                 </a>

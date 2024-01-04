@@ -21,7 +21,7 @@ class PostController extends Controller
 
         $userList = User::whereNotIn('id', $followerIds)->where('id', '!=', $loggedInUserId)->get();
 
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'desc')->get();
 
         return view('explore', compact('userList', 'posts'));
     }
