@@ -22,10 +22,7 @@ class UserController extends Controller
     }
 
     public function explore(){
-        //$userList = User::where('id', '!=', auth()->user()->id)->get();
-
         $loggedInUserId = auth()->user()->id;
-        // $followerIds = auth()->user()->profile->followers->pluck('profile_id');
 
         //logic buat nyari semua user yang blm difollow oleh logged in user
         $followingIds = auth()->user()->following()->pluck('profile_id');

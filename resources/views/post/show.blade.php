@@ -56,7 +56,6 @@
                         @else
                             <a class="btn btn-primary mx-3" href="/{{$post->user->id}}/unfollow">{{ __('Unfollow') }}</a>
                         @endif
-                        <!-- <a href="/{{$post->user->id}}/follow" class="ps-3" style="text-decoration: none;">{{ __('Follow') }}</a> -->
                     </div>
                 </div>
                 

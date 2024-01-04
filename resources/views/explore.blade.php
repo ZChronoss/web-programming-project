@@ -52,7 +52,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <hr class="m-0 mb-3"> <!-- Line -->
+                                        <hr class="m-0 mb-3">
                                         <form class="p-3 pt-0" action="/comment/{{ $post->id }}" method="POST" id="commentForm{{ $post->id }}" style="display: none;">
                                             @csrf
                                             <h6 for="comment" class="form-label">{{ __('Leave a comment on this post') }}</h6>
@@ -93,10 +93,10 @@
                     </div>
                     {{-- <span class="border-black border-top"></span> --}}
                     @forelse ($userList as $user)
-                        <hr class="m-0"> <!-- Line -->
+                        <hr class="m-0">
                         <div class="row p-3">
                             <div class="col-6 d-flex align-items-center py-2">
-                                    <img src="{{ $user->profile->profileImage() }}" class="rounded-circle profile-img pe-2" alt="">
+                                    <img src="{{ $user->profile->profileImage() }}" class="rounded-circle profile-img me-2" alt="">
                                     <a style="text-decoration: none; color: #000;" href="/{{$user->id}}/profile">
                                         {{ $user->name }}
                                     </a>
@@ -105,10 +105,6 @@
                                 <a class="btn btn-primary" href="/{{$user->id}}/follow">{{ __('Follow') }}</a>
                             </div>
                         </div>
-                        <!-- @if (!$loop->last)
-                            <span class="border-black border-bottom border-opacity-25"></span>
-                            {{-- Fake --}}
-                        @endif -->
                     @empty
                         <h6 class="px-3">{{ __('No Users Available') }}</h6>
                     @endforelse
@@ -120,13 +116,6 @@
 {{-- @endforeach --}}
     {{-- <script src="../../js/home.js"></script> --}}
     <script>
-        // function likeBtn(likeIcon) {
-        //     likeIcon.classList.toggle("fa-solid");
-        // }
-        // function likeBtn() {
-        //     let heart = document.getElementById("like");
-        //     heart.classList.toggle("fa-solid");
-        // }
         function toggleCommentForm(comment, id) {
             let commentForm = document.getElementById("commentForm"+id);
             commentForm.style.display = commentForm.style.display === "none" ? "block" : "none";
