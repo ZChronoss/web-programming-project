@@ -14,18 +14,6 @@ class PostController extends Controller
         $this->middleware('auth');
     }
 
-    public function explore(){
-        //logic buat nyari semua user yang blm difollow oleh logged in user
-        $loggedInUserId = auth()->user()->id;
-        $followerIds = auth()->user()->profile->followers()->pluck('profile_id');
-
-        $userList = User::whereNotIn('id', $followerIds)->where('id', '!=', $loggedInUserId)->get();
-
-        $posts = Post::orderBy('id', 'desc')->get();
-
-        return view('explore', compact('userList', 'posts'));
-    }
-
     public function create(){
         return view('post.create');
     }
